@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                {% for info in infos %}
+                <table class="table table-bordered">
+                    <caption>{{ info.info_name }}</caption>
+                    <thead>
+                        {% if info.info_name == '이용시간' %}
+                        <th>요일</th>
+                        <th>이용시간</th>
+                        <th>비고</th>
+                        {% else %}
+                        <th>등록기간</th>
+                        <th>가격</th>
+                        <th>비고</th>
+                        {% endif %}
+                    </thead>
+                    <tbody>
+                        {% if info.info_name == '이용시간' %}
+                            {% for timeinfo in timeinfos %}
+                                <tr>
+                                <th scope="col">{{timeinfo.day}}</th>
+                                <td>{{timeinfo.start_time}} ~ {{timeinfo.end_time}}</td>
+                                {% if timeinfo.note != NULL %}
+                                    <td>{{timeinfo.note}}</td>
+                                {% else %}
+                                    <td> </td>
+                                {% endif %}
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            {% for priceinfo in priceinfos %}
+                            <tr>
+                                <th scope="col">{{priceinfo.registration_period}}</th>
+                                <td>{{priceinfo.price}}</td>
+                                <td>{{priceinfo.note}}</td>
+                                
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+                <div class="line thin"></div>
+                {% endfor %}
+                <div class="page-description">
+                    <h4>안내사항</h4>
+                    <p>
+                        오후 7:00 ~ 10:00 방문시에는 복싱 뿐아니라 한국 미들급 챔피언의 운동 루틴을 함께하며 체력증진 및 다이어트에 효과적인
+                        피트니스 프로그램도 함께 운영 됩니다. 매 시간 수업이 진행되며 참여횟수의 제한은 없으며, 자유롭게 이용 가능합니다.  
+                    </p>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</section>
+{% endblock %}

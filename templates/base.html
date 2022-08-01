@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="kr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=chrome">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="Magz is a HTML5 & CSS3 magazine template is based on Bootstrap 3.">
+        <meta name="author" content="Kodinger">
+        <meta name="keyword" content="magz, html5, css3, template, magazine template">
+        <!-- Shareable -->
+        <meta property="og:title" content="HTML5 & CSS3 magazine template is based on Bootstrap 3" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="http://github.com/nauvalazhar/Magz" />
+        <meta property="og:image" content="https://raw.githubusercontent.com/nauvalazhar/Magz/master/images/preview.png" />
+        <title>수원 태풍 체육관</title>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href='{% static "scripts/bootstrap/bootstrap.min.css" %}'>
+        <!-- IonIcons -->
+		<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+		<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <!-- Toast -->
+        <link rel="stylesheet" href='{% static "scripts/toast/jquery.toast.min.css" %}'>
+        <!-- OwlCarousel -->
+        <link rel="stylesheet" href='{% static "scripts/owlcarousel/dist/assets/owl.carousel.min.css" %}'>
+        <link rel="stylesheet" href='{% static "scripts/owlcarousel/dist/assets/owl.theme.default.min.css" %}'>
+        <!-- Magnific Popup -->
+        <link rel="stylesheet" href='{% static "scripts/magnific-popup/dist/magnific-popup.css" %}'>
+        <link rel="stylesheet" href='{% static "scripts/sweetalert/dist/sweetalert.css" %}'>
+        <!-- Custom style -->
+        <link rel="stylesheet" href='{% static "css/style.css" %}' />
+        <link rel="stylesheet" href='{% static "css/skins/all.css" %}'>
+        <link rel="stylesheet" href='{% static "css/demo.css" %}'>
+    </head>
+
+    <body class="Home">
+        <header class="primary">
+            <div class="firstbar">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3 col-sm-12">
+							<div class="brand">
+								<a href="/">
+									<img src='{% static "images/logo.png" %}' alt="태풍체육관">
+								</a>
+							</div>						
+						</div>
+						<div class="col-md-6 col-sm-12">
+							<form class="search" autocomplete="off">
+								<div class="form-group">
+									<div class="input-group">					
+										<div class="input-group-btn"></div>
+									</div>
+								</div>
+								<div class="help-block">	
+								</div>
+							</form>								
+						</div>
+						<div class="col-md-3 col-sm-12 text-right">
+							<ul class="nav-icons">
+                                {% if login_session %}
+                                <li><a href="{% url 'user:logout' %}"><i class="ion-person"></i><div>로그아웃</div></a></li>
+                                {% else %}
+								<li><a href="{% url 'user:register' %}"><ion-icon name="person-add"></ion-icon><div>회원가입</div></a></li>
+								<li><a href="{% url 'user:login' %}"><i class="ion-person"></i><div>로그인</div></a></li>
+                                {% endif %}
+                            </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+            <nav class="menu">
+				<div class="container">
+					<div class="brand">
+						<a href="#">
+							<img src='{% static "images/logo.png" %}' alt="태풍 체육관">
+						</a>
+					</div>
+					<div class="mobile-toggle">
+						<a href="#" data-toggle="menu" data-target="#menu-list"><i class="ion-navicon-round"></i></a>
+					</div>
+					<div class="mobile-toggle">
+						<a href="#" data-toggle="sidebar" data-target="#sidebar"><i class="ion-ios-arrow-left"></i></a>
+					</div>
+					<div id="menu-list">
+						<ul class="nav-list">
+							
+							<li><a href="#">체육관 소개</a></li>
+                            <li><a href="{% url 'directions:directions' %}">오시는길</a></li>
+                            <li><a href="{% url 'info:info' %}">이용안내</a></li>
+                            <li><a href="{% url 'boxer:boxer_info' %}">선수소개</a></li>
+							<li class="dropdown magz-dropdown"><a href="{% url 'board:free_board_list' %}">게시판 <i class="ion-ios-arrow-right"></i></a>
+								<ul class="dropdown-menu">
+									<li><a href="{% url 'board:free_board_list' %}">자유게시판</a></li>
+									<li><a href="{% url 'board:free_board_list' %}">사진게시판</a></li>
+									<li class="dropdown magz-dropdown"><a href="category.html">스파링영상<i class="ion-ios-arrow-right"></i></a>
+										<ul class="dropdown-menu">
+											<li><a href="category.html">일반부</a></li>
+											<li><a href="category.html">선수부</a>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown magz-dropdown magz-dropdown-megamenu"><a href="#">복싱용품 <i class="ion-ios-arrow-right"></i> <div class="badge">Hot</div></a>
+								<div class="dropdown-menu megamenu">
+									<div class="megamenu-inner">
+										<div class="row">
+											<div class="col-md-3">
+												<div class="row">
+													<div class="col-md-12">
+														<h2 class="megamenu-title">복싱용품</h2>
+													</div>
+												</div>
+												<ul class="vertical-menu">
+													<li><a href="#"><i class="ion-ios-circle-outline"></i> 글러브 </a></li>
+													<li><a href="#"><i class="ion-ios-circle-outline"></i> 헤드기어 </a></li>
+													<li><a href="#"><i class="ion-ios-circle-outline"></i> 핸드랩 </a></li>
+													<li><a href="#"><i class="ion-ios-circle-outline"></i> 복싱화 </a></li>
+													<li><a href="#"><i class="ion-ios-circle-outline"></i> 기타용품 </a></li>
+												</ul>
+											</div>
+											<div class="col-md-9">
+												<div class="row">
+													<div class="col-md-12">
+														<h2 class="megamenu-title">Featured Posts</h2>
+													</div>
+												</div>
+												<div class="row">
+													<article class="article col-md-4 mini">
+														<div class="inner">
+															<figure>
+																<a href="single.html">
+																	<img src="images/news/img10.jpg" alt="Sample Article">
+																</a>
+															</figure>
+															<div class="padding">
+																<div class="detail">
+																	<div class="time">December 10, 2016</div>
+																	<div class="category"><a href="category.html">Healthy</a></div>
+																</div>
+																<h2><a href="single.html">Duis aute irure dolor in reprehenderit in voluptate</a></h2>
+															</div>
+														</div>
+													</article>
+													<article class="article col-md-4 mini">
+														<div class="inner">
+															<figure>
+																<a href="single.html">
+																	<img src="images/news/img11.jpg" alt="Sample Article">
+																</a>
+															</figure>
+															<div class="padding">
+																<div class="detail">
+																	<div class="time">December 13, 2016</div>
+																	<div class="category"><a href="category.html">Lifestyle</a></div>
+																</div>
+																<h2><a href="single.html">Duis aute irure dolor in reprehenderit in voluptate</a></h2>
+															</div>
+														</div>
+													</article>
+													<article class="article col-md-4 mini">
+														<div class="inner">
+															<figure>
+																<a href="single.html">
+																	<img src="images/news/img14.jpg" alt="Sample Article">
+																</a>
+															</figure>
+															<div class="padding">
+																<div class="detail">
+																	<div class="time">December 14, 2016</div>
+																	<div class="category"><a href="category.html">Travel</a></div>
+																</div>
+																<h2><a href="single.html">Duis aute irure dolor in reprehenderit in voluptate</a></h2>
+															</div>
+														</div>
+													</article>
+												</div>
+											</div>
+										</div>								
+									</div>
+								</div>
+							</li>
+							<li><a href="#">회원관리</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+        </header>
+        
+        {% block content %}
+
+        {% endblock %}
+		<script src='{% static "js/jquery.js" %}'></script>
+		<script src='{% static "js/jquery.migrate.js" %}'></script>
+		<script src='{% static "scripts/bootstrap/bootstrap.min.js" %}'></script>
+		<script>var $target_end=$(".best-of-the-week");</script>
+		<script src='{% static "scripts/jquery-number/jquery.number.min.js" %}'></script>
+		<script src='{% static "scripts/owlcarousel/dist/owl.carousel.min.js" %}'></script>
+		<script src='{% static "scripts/magnific-popup/dist/jquery.magnific-popup.min.js" %}'></script>
+		<script src='{% static "scripts/easescroll/jquery.easeScroll.js" %}'></script>
+		<script src='{% static "scripts/sweetalert/dist/sweetalert.min.js" %}'></script>
+		<script src='{% static "scripts/toast/jquery.toast.min.js" %}'></script>
+		<script src='{% static "js/demo.js" %}'></script>
+		<script src='{% static "js/e-magz.js" %}'></script>
+    </body>
+</html>

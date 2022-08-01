@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<section class="page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-title">글 작성</h1>
+                <p class="page-subtitle">자유게시판</p>
+                <div class="line thin"></div>
+                <div class="page-description">
+                    <div class="row">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            {% for form in forms %}
+                            <div class="form-group">
+                                <label for="'{{ form.id_for_label }}">{{ form.label }}</label>
+                                {{ form }}
+                            </div>
+                            {% endfor %}
+                            {% if error %}
+                            {{ error }}
+                            {% endif %}
+                            <div class="form-group text-right">
+                                <button type="submit" name="write_summit" value="write" class="btn btn-primary btn-block">작성완료</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
