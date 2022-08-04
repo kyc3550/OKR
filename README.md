@@ -1,7 +1,9 @@
-MVT 패턴
+# MVT 패턴 
+
 ![MVT](https://user-images.githubusercontent.com/66798060/182791346-a5951241-e2e9-4038-84f7-97694db07c61.jpg)
 
-Django의 ORM 
+# Django의 ORM
+
 ORM이란 Object-Relational Mapping의 약자로 객체(Object)와 관계형 데이터베이스(Relational Database)의 데이터를 매핑(Mapping)해주는 것을 의미한다. 객체 간의 관계를 바탕으로 SQL을 자동 생성하여 sql쿼리문 없이도 데이터베이스의 데이터를 다룰 수 있게 해준다.
 데이터베이스의 테이블을 객체지향 프로그래밍에서 흔히 사용하는 객체(Class)처럼 사용할 수 있도록 해주는 기술이다.
 기존 쿼리문을 작성하여 데이터베이스를 조작하는 것을 넘어서서 더 효율적이고 가독성 및 유지 보수에 적합한 코드를 만들기 위해 나온 기술이다.
